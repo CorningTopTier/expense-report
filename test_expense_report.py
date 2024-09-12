@@ -2,11 +2,22 @@ import unittest
 from assertpy import assert_that
 
 
+class ExpenseReport:
+    def print_report(self):
+        return ""
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        # self.assertEqual(True, False)  # add assertion here
-        assert_that(True, "some value").is_equal_to(False).is_false()
+
+class ExpenseReportTests(unittest.TestCase):
+    def test_should_output_date_description_amount_balance_when_calling_print_report(self):
+        # Given
+            # an expense report without any expense
+        expense_report = ExpenseReport()  # an expense report without any expense
+
+        # When
+        expense_report_output = expense_report.print_report()
+
+        # Then
+        assert_that(expense_report_output, "export report").is_equal_to("| Date | Description | Amount | Balance |")
 
 
 if __name__ == '__main__':
