@@ -5,3 +5,5 @@
     - Add Expense
     - Remove  Expense
     - Modify Expense
+
+This is a repository used for demonstration purposes.
