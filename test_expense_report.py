@@ -1,10 +1,8 @@
 import unittest
+
 from assertpy import assert_that
 
-
-class ExpenseReport:
-    def generate_report(self):
-        return "| Date | Description | Amount | Balance |"
+from expense_report import ExpenseReport
 
 
 class ExpenseReportTests(unittest.TestCase):
