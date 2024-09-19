@@ -3,8 +3,8 @@ from assertpy import assert_that
 
 
 class ExpenseReport:
-    def print_report(self):
-        return ""
+    def generate_report(self):
+        return "| Date | Description | Amount | Balance |"
 
 
 class ExpenseReportTests(unittest.TestCase):
@@ -14,7 +14,7 @@ class ExpenseReportTests(unittest.TestCase):
         expense_report = ExpenseReport()  # an expense report without any expense
 
         # When
-        expense_report_output = expense_report.print_report()
+        expense_report_output = expense_report.generate_report()
 
         # Then
         assert_that(expense_report_output, "export report").is_equal_to("| Date | Description | Amount | Balance |")
