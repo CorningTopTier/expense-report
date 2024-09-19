@@ -6,7 +6,7 @@ from expense_report import ExpenseReport
 
 
 class ExpenseReportTests(unittest.TestCase):
-    def test_should_output_date_description_amount_balance_when_calling_print_report(self):
+    def test_should_output_date_description_amount_balance_when_the_expense_report_has_no_expenses(self):
         # Given
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
