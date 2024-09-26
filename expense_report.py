@@ -9,12 +9,11 @@ class ExpenseReport:
             expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
         else:
             expenseLine2 = ""
-        if self.hasExpense:
+        if self.expense !=None:
             expenseLine = "| " + self.expense.date + " | " + self.expense.description + " | " + f"{self.expense.amount:.2f}" + " | " + f"{self.expense.balance:,.2f}" + " |"
-
         else:
             expenseLine = ""
-            expenseLine2 = ""
+
         return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2
 
     def initialize(self, date, description, amount, balance):
