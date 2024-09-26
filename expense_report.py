@@ -26,9 +26,9 @@ class ExpenseReport:
 class Expense:
     def __init__(self, date, description, amount, balance):
         self.date = date
-        self.expenseDescription = description
-        self.expenseAmount = amount
-        self.expenseBalance = balance
+        self.description = description
+        self.amount = amount
+        self.balance = balance
 
 
 
