@@ -4,14 +4,14 @@ class ExpenseReport:
         self.expense2 = None
 
     def generate_report(self):
-        if self.expense2 == None:
-            expenseLine2 = ""
-        else:
-            expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
         if self.expense == None:
             expenseLine = ""
         else:
             expenseLine = "| " + self.expense.date + " | " + self.expense.description + " | " + f"{self.expense.amount:.2f}" + " | " + f"{self.expense.balance:,.2f}" + " |"
+        if self.expense2 == None:
+            expenseLine2 = ""
+        else:
+            expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
 
         return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2
 
