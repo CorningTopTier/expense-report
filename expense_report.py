@@ -1,9 +1,9 @@
 class ExpenseReport:
     def __init__(self):
         self.hasExpense = False
-        self.expenseAmount = 0.00
         self.expenseDate = None
         self.expenseDescription = None
+        self.expenseAmount = 0.00
         self.expenseBalance = 0.00
     def generate_report(self):
         if self.hasExpense:
@@ -13,9 +13,9 @@ class ExpenseReport:
         return "| Date | Description | Amount | Balance |" + expenseLine
 
     def initialize(self, date, description, amount, balance):
-        self.expenseDescription = description
         self.hasExpense = True
         self.expenseDate = date
+        self.expenseDescription = description
         self.expenseAmount = amount
         self.expenseBalance = balance
         pass
