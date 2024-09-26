@@ -70,6 +70,19 @@ class ExpenseReportTests(unittest.TestCase):
             .starts_with("| Date | Description | Amount | Balance |")
             .ends_with("| 09/26/2024 | Groceries | 99.00 | 1,586.24 |"))
 
+    def test_should_output_header_followed_by_expense_data_with_expense_report_with_1000_00_in_balance(self):
+        # Given
+            # an expense report without any expense
+        expense_report = ExpenseReport()  # an expense report without any expense
+        expense_report.initialize("09/26/2024", "Groceries", 99.00, 1000.00)
+        # When
+        expense_report_output = expense_report.generate_report()
+
+        # Then
+        (assert_that(expense_report_output, "export report")
+            .starts_with("| Date | Description | Amount | Balance |")
+            .ends_with("| 09/26/2024 | Groceries | 99.00 | 1,000.00 |"))
+
 
 
 
