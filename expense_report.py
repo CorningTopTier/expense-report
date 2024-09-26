@@ -1,12 +1,16 @@
 class ExpenseReport:
     def __init__(self):
         self.expense = None
+        self.expense2 = None
         self.hasExpense = False
 
     def generate_report(self):
         if self.hasExpense:
             expenseLine = "| " + self.expense.date + " | " + self.expense.description + " | " + f"{self.expense.amount:.2f}" + " | " + f"{self.expense.balance:,.2f}" + " |"
-            expenseLine2 = "| " + self.expense.date + " | " + self.expense.description + " | " + f"{self.expense.amount:.2f}" + " | " + f"{self.expense.balance:,.2f}" + " |"
+            if self.expense2 !=None:
+                expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
+            else:
+                expenseLine2 = ""
 
         else:
             expenseLine = ""
@@ -15,7 +19,10 @@ class ExpenseReport:
 
     def initialize(self, date, description, amount, balance):
         self.hasExpense = True
-        self.expense = Expense(date, description, amount, balance)
+        if self.expense == None:
+            self.expense = Expense(date, description, amount, balance)
+        else:
+            self.expense2 = Expense(date, description, amount, balance)
         pass
 
 class Expense:
