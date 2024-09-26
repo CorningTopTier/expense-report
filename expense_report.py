@@ -5,12 +5,12 @@ class ExpenseReport:
         self.hasExpense = False
 
     def generate_report(self):
+        if self.expense2 !=None:
+            expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
+        else:
+            expenseLine2 = ""
         if self.hasExpense:
             expenseLine = "| " + self.expense.date + " | " + self.expense.description + " | " + f"{self.expense.amount:.2f}" + " | " + f"{self.expense.balance:,.2f}" + " |"
-            if self.expense2 !=None:
-                expenseLine2 = "| " + self.expense2.date + " | " + self.expense2.description + " | " + f"{self.expense2.amount:.2f}" + " | " + f"{self.expense2.balance:,.2f}" + " |"
-            else:
-                expenseLine2 = ""
 
         else:
             expenseLine = ""
