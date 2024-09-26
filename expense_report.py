@@ -18,7 +18,7 @@ class ExpenseReport:
 
     def initialize(self, date, description, amount, balance):
         self.hasExpense = True
-        self.expense = Expense()
+        self.expense = Expense(date, description, amount, balance)
         self.expenseDate = date
         self.expenseDescription = description
         self.expenseAmount = amount
@@ -26,11 +26,11 @@ class ExpenseReport:
         pass
 
 class Expense:
-    def __init__(self):
-        self.expenseDate = None
-        self.expenseDescription = None
-        self.expenseAmount = 0.00
-        self.expenseBalance = 0.00
+    def __init__(self, date, description, amount, balance):
+        self.expenseDate = date
+        self.expenseDescription = description
+        self.expenseAmount = amount
+        self.expenseBalance = balance
 
 
 
