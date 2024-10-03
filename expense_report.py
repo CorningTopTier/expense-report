@@ -1,8 +1,5 @@
 class ExpenseReport:
     def __init__(self):
-        self.expense = None
-        self.expense2 = None
-        self.expense3 = None
         self.expense_list = []
 
     def generate_report(self):
@@ -29,15 +26,8 @@ class ExpenseReport:
         return expenseLine
 
     def initialize(self, date, description, amount, balance):
-        if self.expense == None:
-            self.expense = Expense(date, description, amount, balance)
-            self.expense_list.append(self.expense)
-        elif self.expense2 == None:
-            self.expense2 = Expense(date, description, amount, balance)
-            self.expense_list.append(self.expense2)
-        else:
-            self.expense3 = Expense(date, description, amount, balance)
-            self.expense_list.append(self.expense3)
+        expense = Expense(date, description, amount, balance)
+        self.expense_list.append(expense)
 
 
 class Expense:
