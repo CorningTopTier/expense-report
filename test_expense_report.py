@@ -98,5 +98,22 @@ class ExpenseReportTests(unittest.TestCase):
             .contains("| 09/25/2024 | Movies | 35.00 | 1,000.00 |")
             .ends_with("| 09/26/2024 | Groceries | 99.00 | 1,099.00 |"))
 
+    def test_should_output_header_followed_by_three_expenses(self):
+        # Given
+            # an expense report without any expense
+        expense_report = ExpenseReport()  # an expense report without any expense
+        expense_report.initialize("09/25/2024", "Movies", 35.00, 1000.00)
+        expense_report.initialize("09/26/2024", "Groceries", 99.00, 901.00)
+        expense_report.initialize("10/03/2024", "Car Repair", 450.00, 449.00)
+        # When
+        expense_report_output = expense_report.generate_report()
+
+        # Then
+        (assert_that(expense_report_output, "export report")
+            .starts_with("| Date | Description | Amount | Balance |")
+            .contains("| 09/25/2024 | Movies | 35.00 | 1,000.00 |")
+            .contains("| 09/26/2024 | Groceries | 99.00 | 901.00 |")
+            .ends_with("| 10/03/2024 | Car Repair | 450.00 | 449.00 |"))
+
 if __name__ == '__main__':
     unittest.main()
