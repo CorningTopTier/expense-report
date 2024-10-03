@@ -14,7 +14,10 @@ class ExpenseReport:
             expenseLine2 = self.createExpenseLine(self.expense_list[1])
         else:
             expenseLine2 = ""
-        expenseLine3 = self.createExpenseLine(self.expense3)
+        if len(self.expense_list) > 2:
+            expenseLine3 = self.createExpenseLine(self.expense_list[2])
+        else:
+            expenseLine3 = ""
 
         return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2 + expenseLine3
 
