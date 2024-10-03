@@ -10,7 +10,10 @@ class ExpenseReport:
             expenseLine = self.createExpenseLine(self.expense_list[0])
         else:
             expenseLine = ""
-        expenseLine2 = self.createExpenseLine(self.expense2)
+        if len(self.expense_list) > 1:
+            expenseLine2 = self.createExpenseLine(self.expense_list[1])
+        else:
+            expenseLine2 = ""
         expenseLine3 = self.createExpenseLine(self.expense3)
 
         return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2 + expenseLine3
@@ -28,8 +31,10 @@ class ExpenseReport:
             self.expense_list.append(self.expense)
         elif self.expense2 == None:
             self.expense2 = Expense(date, description, amount, balance)
+            self.expense_list.append(self.expense2)
         else:
             self.expense3 = Expense(date, description, amount, balance)
+            self.expense_list.append(self.expense3)
 
 
 class Expense:
