@@ -3,20 +3,27 @@ class ExpenseReport:
         self.expense_list = []
 
     def generate_report(self):
-        if len(self.expense_list) > 0:
-            expenseLine = self.createExpenseLine(self.expense_list[0])
-        else:
-            expenseLine = ""
-        if len(self.expense_list) > 1:
-            expenseLine2 = self.createExpenseLine(self.expense_list[1])
-        else:
-            expenseLine2 = ""
-        if len(self.expense_list) > 2:
-            expenseLine3 = self.createExpenseLine(self.expense_list[2])
-        else:
-            expenseLine3 = ""
+        report_so_far = "| Date | Description | Amount | Balance |"
+        for expense in self.expense_list:
+            expenseLine = self.createExpenseLine(expense)
+            report_so_far = report_so_far + expenseLine
+        return report_so_far
 
-        return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2 + expenseLine3
+
+        # if len(self.expense_list) > 0:
+        #     expenseLine = self.createExpenseLine(self.expense_list[0])
+        # else:
+        #     expenseLine = ""
+        # if len(self.expense_list) > 1:
+        #     expenseLine2 = self.createExpenseLine(self.expense_list[1])
+        # else:
+        #     expenseLine2 = ""
+        # if len(self.expense_list) > 2:
+        #     expenseLine3 = self.createExpenseLine(self.expense_list[2])
+        # else:
+        #     expenseLine3 = ""
+        #
+        # return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2 + expenseLine3
 
     def createExpenseLine(self, expense):
         if expense == None:
