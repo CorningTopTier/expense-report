@@ -1,9 +1,6 @@
 import unittest
-
 from assertpy import assert_that
-
 from expense_report import ExpenseReport
-
 
 class ExpenseReportTests(unittest.TestCase):
     def test_should_output_date_description_amount_balance_when_the_expense_report_has_no_expenses(self):
