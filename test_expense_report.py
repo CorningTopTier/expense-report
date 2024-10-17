@@ -1,5 +1,7 @@
 import unittest
+
 from assertpy import assert_that
+
 from expense_report import ExpenseReport
 
 class ExpenseReportTests(unittest.TestCase):
