@@ -9,22 +9,6 @@ class ExpenseReport:
             report_so_far = report_so_far + expenseLine
         return report_so_far
 
-
-        # if len(self.expense_list) > 0:
-        #     expenseLine = self.createExpenseLine(self.expense_list[0])
-        # else:
-        #     expenseLine = ""
-        # if len(self.expense_list) > 1:
-        #     expenseLine2 = self.createExpenseLine(self.expense_list[1])
-        # else:
-        #     expenseLine2 = ""
-        # if len(self.expense_list) > 2:
-        #     expenseLine3 = self.createExpenseLine(self.expense_list[2])
-        # else:
-        #     expenseLine3 = ""
-        #
-        # return "| Date | Description | Amount | Balance |" + expenseLine + expenseLine2 + expenseLine3
-
     def createExpenseLine(self, expense):
         if expense == None:
             expenseLine = ""
