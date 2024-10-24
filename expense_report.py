@@ -16,9 +16,6 @@ class ExpenseReport:
         if expense == None:
             expenseLine = ""
         else:
-            if expense.balance is not None:
-                currentBalance = expense.balance
-
             expenseLine = "| " + expense.date + " | " + expense.description + " | " + f"{expense.amount:.2f}" + " | " + f"{currentBalance:,.2f}" + " |"
         return expenseLine
 
