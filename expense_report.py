@@ -16,7 +16,7 @@ class ExpenseReport:
         if expense == None:
             expenseLine = ""
         else:
-            expenseLine = "| " + expense.date + " | " + expense.description + " | " + f"{expense.amount:.2f}" + " | " + f"{currentBalance:,.2f}" + " |"
+            expenseLine = "\n| " + expense.date + " | " + expense.description + " | " + f"{expense.amount:.2f}" + " | " + f"{currentBalance:,.2f}" + " |"
         return expenseLine
 
     def initialize(self, date, description, amount):
