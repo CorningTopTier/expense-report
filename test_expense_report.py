@@ -1,10 +1,10 @@
 import unittest
 
-from assertpy import assert_that, BaseAssert
+from assertpy import assert_that
 
 from expense_report import ExpenseReport
 
-from custom_string_assert import assert_that_string
+from custom_string_assert import is_equal_to_with_diff
 
 class ExpenseReportTests(unittest.TestCase):
     def test_should_output_date_description_amount_balance_when_the_expense_report_has_no_expenses(self):
@@ -141,12 +141,12 @@ class ExpenseReportTests(unittest.TestCase):
             .contains("| 09/26/2024 | Groceries | 99.00 | 901.00 |")
             .ends_with("| 10/03/2024 | Car Repair | 450.00 | 451.00 |"))
 
-        (assert_that_string(expense_report_output, "export report")
-         .is_equal_to("""\
- | Date | Description | Amount | Balance |
- | 09/25/2024 | Movies | 35.00 | 1,000.00 |
- | 09/26/2024 | Groceries | 99.00 | 901.00 |
- | 10/03/2024 | Car Repair | 450.00 | 451.00 |"""))
+        (assert_that(expense_report_output, "export report")
+         .is_equal_to_with_diff("""\
+| Date | Description | Amount | Balance |
+| 09/25/2024 | Movies | 35.00 | 1,000.00 |
+| 09/26/2024 | Groceries | 99.00 | 901.00 |
+| 10/03/2024 | Car Repair | 450.00 | 451.00 |"""))
 
 
 
