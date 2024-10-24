@@ -22,7 +22,7 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1586.24 + 52.25)
-        expense_report.initialize(date="6/05/1998", description="Gasoline", amount=52.25, balance=1586.24)
+        expense_report.initialize(date="6/05/1998", description="Gasoline", amount=52.25)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -36,7 +36,7 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1586.24 + 52.25)
-        expense_report.initialize(date="6/05/1998", description="Groceries", amount=52.25, balance=1586.24)
+        expense_report.initialize(date="6/05/1998", description="Groceries", amount=52.25)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -50,7 +50,7 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1586.24 + 52.25)
-        expense_report.initialize(date="09/26/2024", description="Groceries", amount=52.25, balance=1586.24)
+        expense_report.initialize(date="09/26/2024", description="Groceries", amount=52.25)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -64,7 +64,7 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1586.24 + 99.00)
-        expense_report.initialize(date="09/26/2024", description="Groceries", amount=99.00, balance=1586.24)
+        expense_report.initialize(date="09/26/2024", description="Groceries", amount=99.00)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -78,7 +78,7 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1099.00)
-        expense_report.initialize("09/26/2024", "Groceries", 99.00, 1000.00)
+        expense_report.initialize("09/26/2024", "Groceries", 99.00)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -92,8 +92,8 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1035.00)
-        expense_report.initialize("09/25/2024", "Movies", 35.00, 1000.00)
-        expense_report.initialize("09/26/2024", "Groceries", 99.00, 901.00)
+        expense_report.initialize("09/25/2024", "Movies", 35.00)
+        expense_report.initialize("09/26/2024", "Groceries", 99.00)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -108,9 +108,9 @@ class ExpenseReportTests(unittest.TestCase):
             # an expense report without any expense
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1035.00)
-        expense_report.initialize("09/25/2024", "Movies", 35.00, 1000.00)
-        expense_report.initialize("09/26/2024", "Groceries", 99.00, 901.00)
-        expense_report.initialize("10/03/2024", "Car Repair", 450.00, 451.00)
+        expense_report.initialize("09/25/2024", "Movies", 35.00)
+        expense_report.initialize("09/26/2024", "Groceries", 99.00)
+        expense_report.initialize("10/03/2024", "Car Repair", 450.00)
         # When
         expense_report_output = expense_report.generate_report()
 

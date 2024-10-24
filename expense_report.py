@@ -19,8 +19,8 @@ class ExpenseReport:
             expenseLine = "| " + expense.date + " | " + expense.description + " | " + f"{expense.amount:.2f}" + " | " + f"{currentBalance:,.2f}" + " |"
         return expenseLine
 
-    def initialize(self, date, description, amount, balance=None):
-        expense = Expense(date, description, amount, balance)
+    def initialize(self, date, description, amount):
+        expense = Expense(date, description, amount)
         self.expense_list.append(expense)
 
 
@@ -29,8 +29,7 @@ class ExpenseReport:
 
 
 class Expense:
-    def __init__(self, date, description, amount, balance):
+    def __init__(self, date, description, amount):
         self.date = date
         self.description = description
         self.amount = amount
-        self.balance = balance
