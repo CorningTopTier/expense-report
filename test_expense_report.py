@@ -93,7 +93,7 @@ class ExpenseReportTests(unittest.TestCase):
         expense_report = ExpenseReport()  # an expense report without any expense
         expense_report.setBeginningBalance(1035.00)
         expense_report.initialize("09/25/2024", "Movies", 35.00, 1000.00)
-        expense_report.initialize("09/26/2024", "Groceries", 99.00, 1099.00)
+        expense_report.initialize("09/26/2024", "Groceries", 99.00, 901.00)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -101,7 +101,7 @@ class ExpenseReportTests(unittest.TestCase):
         (assert_that(expense_report_output, "export report")
             .starts_with("| Date | Description | Amount | Balance |")
             .contains("| 09/25/2024 | Movies | 35.00 | 1,000.00 |")
-            .ends_with("| 09/26/2024 | Groceries | 99.00 | 1,099.00 |"))
+            .ends_with("| 09/26/2024 | Groceries | 99.00 | 901.00 |"))
 
     def test_should_output_header_followed_by_three_expenses(self):
         # Given
@@ -110,7 +110,7 @@ class ExpenseReportTests(unittest.TestCase):
         expense_report.setBeginningBalance(1035.00)
         expense_report.initialize("09/25/2024", "Movies", 35.00, 1000.00)
         expense_report.initialize("09/26/2024", "Groceries", 99.00, 901.00)
-        expense_report.initialize("10/03/2024", "Car Repair", 450.00, 449.00)
+        expense_report.initialize("10/03/2024", "Car Repair", 450.00, 451.00)
         # When
         expense_report_output = expense_report.generate_report()
 
@@ -119,7 +119,7 @@ class ExpenseReportTests(unittest.TestCase):
             .starts_with("| Date | Description | Amount | Balance |")
             .contains("| 09/25/2024 | Movies | 35.00 | 1,000.00 |")
             .contains("| 09/26/2024 | Groceries | 99.00 | 901.00 |")
-            .ends_with("| 10/03/2024 | Car Repair | 450.00 | 449.00 |"))
+            .ends_with("| 10/03/2024 | Car Repair | 450.00 | 451.00 |"))
 
     def test_should_output_header_followed_by_three_expenses_when_using_a_starting_balance_and_not_providing_expense_balances(self):
         # Given
