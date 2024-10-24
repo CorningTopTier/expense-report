@@ -139,5 +139,14 @@ class ExpenseReportTests(unittest.TestCase):
             .contains("| 09/26/2024 | Groceries | 99.00 | 901.00 |")
             .ends_with("| 10/03/2024 | Car Repair | 450.00 | 451.00 |"))
 
+        (assert_that(expense_report_output, "export report")
+         .is_equal_to("""\
+ | Date | Description | Amount | Balance |
+ | 09/25/2024 | Movies | 35.00 | 1,000.00 |
+ | 09/26/2024 | Groceries | 99.00 | 901.00 |
+ | 10/03/2024 | Car Repair | 450.00 | 451.00 |"""))
+
+
+
 if __name__ == '__main__':
     unittest.main()
