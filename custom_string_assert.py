@@ -7,6 +7,7 @@ def is_equal_to_with_diff(self, other_string):
         for i, (char1, char2) in enumerate(zip(self.val, other_string)):
             if char1 != char2:
                 print(f"Difference at index {i}: '{char1}' != '{char2}'")
+                break
         if len(self.val) != len(other_string):
             print(f"String lengths differ: {len(self.val)} != {len(other_string)}")
     # Continue with the original is_equal_to assertion
