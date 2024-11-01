@@ -2,11 +2,12 @@ class ExpenseReport:
     def __init__(self):
         self.expense_list = []
         self.beginningBalance = 0
-
     def generate_report(self):
         report_so_far = "| Date | Description | Amount | Balance |"
         currentBalance = self.beginningBalance
-        for expense in self.expense_list:
+        sorted_date_expenses = sorted(self.expense_list, key=lambda item: item.date)
+        # https://chatgpt.com/share/6724dbe7-b0a0-8011-aca5-60658b1320d5
+        for expense in sorted_date_expenses:
             currentBalance = currentBalance - expense.amount
             expenseLine = self.createExpenseLine(expense, currentBalance)
             report_so_far = report_so_far + expenseLine
