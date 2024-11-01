@@ -1,4 +1,5 @@
-import Tkinter as tk
+import tkinter as tk
+from tkinter import ttk
 import unittest
 
 
@@ -7,7 +8,7 @@ class TKinterTestCase(unittest.TestCase):
     so refactored them into a separate class
     """
     def setUp(self):
-        self.root=tkinter.Tk()
+        self.root = tk.Tk()
         self.pump_events()
 
     def tearDown(self):
@@ -16,20 +17,23 @@ class TKinterTestCase(unittest.TestCase):
             self.pump_events()
 
     def pump_events(self):
-        while self.root.dooneevent(_tkinter.ALL_EVENTS | _tkinter.DONT_WAIT):
+        # Loop to handle Tkinter events without freezing
+        while self.root.tk.dooneevent(tk._tkinter.DONT_WAIT):
             pass
+
 
 class TestViewAskText(TKinterTestCase):
     def test_enter(self):
-        v = View_AskText(self.root,value=u"йцу")
+        v = View_AskText(self.root, value="йцу")
         self.pump_events()
         v.e.focus_set()
-        v.e.insert(tkinter.END,u'кен')
+        v.e.insert(tk.END, 'кен')
         v.e.event_generate('<Return>')
         self.pump_events()
 
-        self.assertRaises(tkinter.TclError, lambda: v.top.winfo_viewable())
-        self.assertEqual(v.value,u'йцукен')
+        with self.assertRaises(tk.TclError):
+            v.top.winfo_viewable()
+        self.assertEqual(v.value, 'йцукен')
 
 
 # ###########################################################
@@ -37,20 +41,21 @@ class TestViewAskText(TKinterTestCase):
 # and imported at the start of the test's file)
 # ###########################################################
 
-class View_AskText(object):
-    def __init__(self, master, value=u""):
-        self.value=None
+class View_AskText:
+    def __init__(self, master, value=""):
+        self.value = None
 
-        top = self.top = tkinter.Toplevel(master)
+        top = self.top = tk.Toplevel(master)
         top.grab_set()
-        self.l = ttk.Label(top, text=u"Value:")
+        self.l = ttk.Label(top, text="Value:")
         self.l.pack()
         self.e = ttk.Entry(top)
         self.e.pack()
         self.b = ttk.Button(top, text='Ok', command=self.save)
         self.b.pack()
 
-        if value: self.e.insert(0,value)
+        if value:
+            self.e.insert(0, value)
         self.e.focus_set()
         top.bind('<Return>', self.save)
 
@@ -60,5 +65,4 @@ class View_AskText(object):
 
 
 if __name__ == '__main__':
-    import unittest
     unittest.main()
