@@ -1,17 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 
-def submit_name(name_input_field):
-    name = name_input_field.get()
-    print("Name entered:", name)  # Or handle the name as needed
-    return name  # Return the name for testing purposes
+# Function to handle name submission, with optional callback for test verification
+def submit_name(name_entry, callback=None):
+    name = name_entry.get()
+    if callback:
+        callback(name)  # Use callback for testing
+    return name  # Return name for testing purposes
 
-def create_app():
-    # Create the main window
+# Main function to create the app
+def create_app(on_submit_callback=None):
     root = tk.Tk()
     root.title("Name Input App")
-
-    # Set window size
     root.geometry("300x150")
 
     # Label for the input
@@ -22,12 +22,16 @@ def create_app():
     name_entry = ttk.Entry(root, width=30)
     name_entry.pack()
 
-    # Button to submit
-    submit_button = ttk.Button(root, text="Submit", command=lambda: submit_name(name_entry))
+    # Button to submit, with callback for test
+    submit_button = ttk.Button(
+        root,
+        text="Submit",
+        command=lambda: submit_name(name_entry, on_submit_callback)
+    )
     submit_button.pack(pady=10)
 
-    return root, name_entry  # Return root and name_entry for testing
+    return root, name_entry, submit_button
 
 if __name__ == "__main__":
-    root, _ = create_app()
+    root, _, _ = create_app()
     root.mainloop()
