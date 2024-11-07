@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-def submit_name(name_entry):
-    name = name_entry.get()
+def submit_name(name_input_field):
+    name = name_input_field.get()
     print("Name entered:", name)  # Or handle the name as needed
     return name  # Return the name for testing purposes
 
