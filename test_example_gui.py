@@ -10,14 +10,14 @@ class ExpenseReportTests(unittest.TestCase):
     def test_submit_name(self):
         # Create a Tkinter Entry widget for testing
         root = Tk()
-        name_entry = Entry(root)
+        name_input_field = Entry(root)
 
         # Insert a test name into the entry widget
         test_name = "Alice"
-        name_entry.insert(0, test_name)
+        name_input_field.insert(0, test_name)
 
         # Call submit_name and verify the result
-        result = submit_name(name_entry)
+        result = submit_name(name_input_field)
         assert_that(result).is_equal_to(test_name)
 
         # Destroy the Tk instance after the test
