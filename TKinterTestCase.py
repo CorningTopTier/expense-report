@@ -18,8 +18,8 @@ class TKinterTestCase(unittest.TestCase):
 
     def pump_events(self):
         # Loop to handle Tkinter events without freezing
-        while self.root.tk.dooneevent(tk._tkinter.DONT_WAIT):
-            pass
+        self.root.update_idletasks()
+        self.root.update()
 
 
 class TestViewAskText(TKinterTestCase):

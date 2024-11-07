@@ -33,5 +33,8 @@ def create_app(on_submit_callback=None):
     return root, name_entry, submit_button
 
 if __name__ == "__main__":
-    root, _, _ = create_app()
+    # Define a callback function to capture the name
+    def print_callback(name):
+        print(name)
+    root, _, _ = create_app(on_submit_callback=print_callback)
     root.mainloop()
