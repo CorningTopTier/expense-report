@@ -65,4 +65,8 @@ class View_AskText:
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    root = tk.Tk()
+    v = View_AskText(root, value="йцу")
+    root.wait_window(v.top)
+    root.mainloop()
