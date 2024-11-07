@@ -1,7 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 
-def main():
+def submit_name(name_entry):
+    name = name_entry.get()
+    print("Name entered:", name)  # Or handle the name as needed
+    return name  # Return the name for testing purposes
+
+def create_app():
     # Create the main window
     root = tk.Tk()
     root.title("Name Input App")
@@ -18,15 +23,11 @@ def main():
     name_entry.pack()
 
     # Button to submit
-    def submit_name():
-        name = name_entry.get()
-        print("Name entered:", name)  # Or handle the name as needed
-
-    submit_button = ttk.Button(root, text="Submit", command=submit_name)
+    submit_button = ttk.Button(root, text="Submit", command=lambda: submit_name(name_entry))
     submit_button.pack(pady=10)
 
-    # Run the application
-    root.mainloop()
+    return root, name_entry  # Return root and name_entry for testing
 
 if __name__ == "__main__":
-    main()
+    root, _ = create_app()
+    root.mainloop()
