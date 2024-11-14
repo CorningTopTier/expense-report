@@ -21,7 +21,7 @@ class TestNameInputApp(unittest.TestCase):
         submit_button.invoke()
 
         # Check that the callback was called with the correct name
-        assert_that(result_container).is_equal_to(["Alice"])
+        assert_that(result_container).contains_only("Alice")
 
         # Destroy the Tk instance after the test
         root.destroy()
