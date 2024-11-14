@@ -4,4 +4,5 @@ import tkinter as tk
 def create_app():
     root = tk.Tk()
     root.title("Enter Expense")
+    root.geometry("300x150")
     return root
