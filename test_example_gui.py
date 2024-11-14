@@ -15,14 +15,13 @@ class TestNameInputApp(unittest.TestCase):
         root, name_entry, submit_button = create_app(on_submit_callback=test_callback)
 
         # Insert a test name into the entry field
-        test_name = "Alice"
-        name_entry.insert(0, test_name)
+        name_entry.insert(0, "Alice")
 
         # Simulate button click
         submit_button.invoke()
 
         # Check that the callback was called with the correct name
-        assert_that(result).is_equal_to([test_name])
+        assert_that(result).is_equal_to(["Alice"])
 
         # Destroy the Tk instance after the test
         root.destroy()
