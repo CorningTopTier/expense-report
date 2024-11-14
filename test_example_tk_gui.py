@@ -1,6 +1,6 @@
 import unittest
 from assertpy import assert_that
-from example_gui import create_app  # Replace 'example_gui' with the actual module name if different
+from example_tk_gui import create_app  # Replace 'example_gui' with the actual module name if different
 
 class TestNameInputApp(unittest.TestCase):
     def test_submit_name(self):
